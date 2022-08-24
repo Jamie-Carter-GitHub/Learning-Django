@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<HTML>
+<body>
+
+<h1>Items</h1>
+
+<table border="1">
+{% for item in items %}
+<tr>
+<td>{{ item.id }}</td>
+<td>{{ item.itemname }}</td>
+<td>{{ item.itemdesc }}</td>
+</tr>
+{% endfor %}
+</table>
+
+</body>
+</HTML>
