@@ -22,3 +22,8 @@ def addrecord(request):
     item = Items(itemname=name, itemdesc=desc)
     item.save()
     return HttpResponseRedirect(reverse('index'))
+
+def delete(request, id):
+    item = Items.objects.get(id=id)
+    item.delete()
+    return HttpResponseRedirect(reverse('index'))
