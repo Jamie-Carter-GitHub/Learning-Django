@@ -27,3 +27,20 @@ def delete(request, id):
     item = Items.objects.get(id=id)
     item.delete()
     return HttpResponseRedirect(reverse('index'))
+
+def update(request, id):
+  myitem = Items.objects.get(id=id)
+  template = loader.get_template('update.html')
+  context = {
+    'myitem': myitem,
+  }
+  return HttpResponse(template.render(context, request))
+
+def updaterecord(request, id):
+    name = request.POST['name']
+    desc = request.POST['desc']
+    item = Items.objects.get(id=id)
+    item.itemname = name
+    item.itemdesc = desc
+    item.save()
+    return HttpResponseRedirect(reverse('index'))

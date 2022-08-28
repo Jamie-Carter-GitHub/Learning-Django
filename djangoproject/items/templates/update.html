@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<h1>Update item</h1>
+
+<form action="updaterecord/{{ myitem.id }}" method="post">
+{% csrf_token %}
+Item Name:<br>
+<input name="name" value="{{ myitem.itemname }}">
+<br><br>
+Item Desc:<br>
+<input name="desc" value="{{ myitem.itemdesc }}">
+<br><br>
+<input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
