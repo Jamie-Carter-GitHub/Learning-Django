@@ -1,0 +1,32 @@
+.header {
+	margin-left:0%;
+    text-align: justify;
+	height: 40px;
+    padding: 1em;
+    background: gray;
+	padding-left:10px;
+    padding-bottom: 1px;
+    padding-top: 1px;
+	border-color:black;
+	border-bottom-style: solid;
+	position: fixed;
+	width: 100%;
+	color:white;	
+}
+body
+{
+	margin:0;
+	background-color:beige; 
+}
+h1
+{
+	font-size: 20px;
+}
+p
+{
+    margin-left:10px;
+}
+a
+{
+    margin-left:10px;
+}

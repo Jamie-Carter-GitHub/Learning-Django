@@ -1,8 +1,15 @@
 <!DOCTYPE html>
+{% load static %}
 <HTML>
+    <head>
+        <link rel="stylesheet" href="{% static 'items/index.css' %}">
+    </head>
 <body>
 
-<h1>Items Database</h1>
+<div class = "header">
+    <h1>Items Database</h1>
+</div>
+<br></br>
 <p>This item database page acts as a way to interface with a database.
 With this page, "items" can be retrieved from a database, as seen below,
 add new items to the database, update an existing item from the database,
@@ -21,13 +28,9 @@ and remove an item from the database.
 {% endfor %}
 </table>
 
-<p>
-    <a href="add/">Add item</a>
-</p>
+<a href="add/"><button>Add item</button></a>
 
-<p>
-    <a href="..">Home</a>
-</p>
+<a href="/"><button>Home</button></a>
 
 </body>
 </HTML>

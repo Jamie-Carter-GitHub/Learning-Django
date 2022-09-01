@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-
+{% load static %}
 <html>
+    <head>
+        <link rel="stylesheet" href="{% static 'home/home.css' %}">
+    </head>
 <body>
 
-<h1>Hello Django!</h1>
+<div class = "header">
+    <h1>Hello Django!</h1>
+</div>
+<br></br>
 <p>this is the home page for my Django projects!</p>
-<a href="django\">Item Database</a>
+<a href="django\"><button>Item Database</button></a>
 
 </body>
 </html>
