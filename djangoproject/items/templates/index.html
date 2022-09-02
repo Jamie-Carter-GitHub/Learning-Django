@@ -3,6 +3,7 @@
 <HTML>
     <head>
         <link rel="stylesheet" href="{% static 'items/index.css' %}">
+        <script src="{% static 'items/search.js' %}"></script>
     </head>
 <body>
 
@@ -16,17 +17,21 @@ add new items to the database, update an existing item from the database,
 and remove an item from the database. 
 </p>
 
-<table border="1">
-{% for item in items %}
-<tr>
-<td>{{ item.id }}</td>
-<td>{{ item.itemname }}</td>
-<td>{{ item.itemdesc }}</td>
-<td><a href="update/{{ item.id }}">update</a></td>
-<td><a href="delete/{{ item.id }}">delete</a></td>
-</tr>
-{% endfor %}
-</table>
+<div id="itemContainer" class="container">
+    <table border="1", id="itemsTable">
+        <th colspan="5"><input type="text" id="itemInput" placeholder="Search for items..." onkeyup='searchTable()'></input></th>
+        {% for item in items %}
+        <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.itemname }}</td>
+        <td>{{ item.itemdesc }}</td>
+        <td><a href="update/{{ item.id }}">update</a></td>
+        <td><a href="delete/{{ item.id }}">delete</a></td>
+        </tr>
+        {% endfor %}
+        </table>
+</div>
+
 
 <a href="add/"><button>Add item</button></a>
 
