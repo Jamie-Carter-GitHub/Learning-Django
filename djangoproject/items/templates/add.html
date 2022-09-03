@@ -1,20 +1,29 @@
 <!DOCTYPE html>
-
+{% load static %}
 <html>
+    <head>
+        <link rel="stylesheet" href="{% static 'items/index.css' %}">
+    </head>
 <body>
 
-<h1>Add member</h1>
-
-<form action="addrecord/" method="post">
-{% csrf_token %}
-Item Name:<br>
-<input name="name">
+<div class="header">
+    <h1>Add member</h1>
+</div>
 <br><br>
-Item Desc:<br>
-<input name="desc">
-<br><br>
-<input type="submit" value="Submit">
-</form>
+<div class="containerForm">
+    <form action="addrecord/" method="post">
+    {% csrf_token %}
+    Item Name:<br>
+    <input name="name">
+    <br><br>
+    Item Desc:<br>
+    <input name="desc">
+    <br><br>
+    <input type="submit" value="Submit">
+    <a href=".."><button type="button">Cancel</button></a>
+    </form>
+    
+</div>
 
 <p>
 <a href="..">Cancel</a>
