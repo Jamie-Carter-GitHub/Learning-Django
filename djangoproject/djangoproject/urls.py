@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('home.urls')),
-    path('django/', include('items.urls')),
+    path('items/', include('items.urls')),
+    path('todo/', include('todo.urls')),
 ]
