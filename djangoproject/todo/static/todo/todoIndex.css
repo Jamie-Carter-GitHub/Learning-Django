@@ -30,3 +30,28 @@ a
 {
     margin-left:10px;
 }
+.gridContainer {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+	grid-auto-rows: minmax(100px, auto);
+	padding:10px;
+}
+.containerLeft
+{
+	grid-column: 1 / 2;
+  	grid-row: 1;
+	border: 1px black solid;
+}
+.containerRight
+{
+	grid-column: 2 / 3;
+  	grid-row: 1;
+	border: 1px black solid;
+}
+.containerForm
+{
+	grid-column: 3;
+  	grid-row: 1;
+	border: 1px black solid;
+}

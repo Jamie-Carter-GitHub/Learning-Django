@@ -5,4 +5,7 @@ from django.urls import reverse
 
 def index (request) :
     template = loader.get_template('todoIndex.html')
-    return HttpResponse(template.render())
+    context = {
+        'count': 0,
+    }
+    return HttpResponse(template.render(context, request))
