@@ -3,11 +3,12 @@
 <html>
     <head>
         <link rel="stylesheet" href="{% static 'todo/todoIndex.css' %}">
+        <script src="{% static 'todo/todo.js' %}"></script>
     </head>
-<body>
+<body onload="test()">
 
 <div class="header">
-    <h1>Todo list!</h1>
+    <h1 id="title">Todo list!</h1>
 </div>
 <br></br>
 <p>this is a todo list... of things you might need to do!</p>

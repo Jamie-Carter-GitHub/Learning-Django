@@ -6,10 +6,7 @@ from .models import Tasks
 
 def index (request) :
     template = loader.get_template('todoIndex.html')
-    context = {
-        'count': 0,
-    }
-    return HttpResponse(template.render(context, request))
+    return HttpResponse(template.render())
 
 def addtodo(request):
     name = request.POST['name']
