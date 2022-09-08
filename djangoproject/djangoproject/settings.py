@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'items.apps.ItemsConfig',
     'home.apps.HomeConfig',
     'todo.apps.TodoConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
