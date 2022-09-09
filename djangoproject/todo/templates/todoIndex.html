@@ -4,8 +4,9 @@
     <head>
         <link rel="stylesheet" href="{% static 'todo/todoIndex.css' %}">
         <script src="{% static 'todo/todo.js' %}"></script>
+        <script src="{% static 'todo/jquery-3.6.1.min.js' %}"></script>
     </head>
-<body onload="test()">
+<body onload="populatePage()">
 
 <div class="header">
     <h1 id="title">Todo list!</h1>
@@ -14,11 +15,11 @@
 <p>this is a todo list... of things you might need to do!</p>
 
 <div class="gridContainer">
-    <div class="containerTopLeft">
+    <div class="containerTopLeft" id="topLeftTask">
         a
     </div>
     
-    <div class="containerTopRight">
+    <div class="containerTopRight" id="topRightTask">
         b
     </div>
     
@@ -38,11 +39,11 @@
         </div>
     </div>
 
-    <div class="containerBottomLeft">
+    <div class="containerBottomLeft" id="botLeftTask">
         d
     </div>
     
-    <div class="containerBottomRight">
+    <div class="containerBottomRight" id="botRightTask">
         e
     </div>
 </div>

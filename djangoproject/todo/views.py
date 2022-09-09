@@ -9,7 +9,7 @@ from todo.serializers import TaskSerializer
 
 def index (request) :
     template = loader.get_template('todoIndex.html')
-    return HttpResponse(template.render())
+    return HttpResponse(template.render({}, request))
 
 def addtodo(request):
     name = request.POST['name']
