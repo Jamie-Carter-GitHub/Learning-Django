@@ -57,30 +57,35 @@ textarea
 	grid-column: 1 / 2;
   	grid-row: 1;
 	border: 1px black solid;
+	background-color: lightgray;
 }
 .containerTopRight
 {
 	grid-column: 2 / 3;
   	grid-row: 1;
 	border: 1px black solid;
+	background-color: lightgray;
 }
 .containerBottomLeft
 {
 	grid-column: 1 / 2;
   	grid-row: 2;
 	border: 1px black solid;
+	background-color: lightgray;
 }
 .containerBottomRight
 {
 	grid-column: 2 / 3;
   	grid-row: 2;
 	border: 1px black solid;
+	background-color: lightgray;
 }
 .containerForm
 {
 	grid-column: 3;
   	grid-row: 1/3;
 	border: 1px black solid;
+	background-color: lightgray;
 }
 .container
 {

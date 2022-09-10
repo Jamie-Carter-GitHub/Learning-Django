@@ -1,9 +1,18 @@
+var page=1; //keep track of page number for managaing which tasks are shown.
+
 function populatePage(){
+	if(page > 1){
+		$(previousButton).prop('disabled', false)
+	}
     var divs = ['#topLeftTask','#topRightTask','#botLeftTask','#botRightTask'];
 	//wait for AJAX to finish
 	$.when(getTasks()).done(function (tasks){
 
 		$.each(tasks, function(index, task){
+			if(index >= 4){
+				$(nextButton).prop('disabled', false)
+				return false;
+			}
             var strResult="";
             strResult = strResult + 
             "<h3>" + task.taskname + "</h3>" +
@@ -17,11 +26,6 @@ function populatePage(){
 	});
 }
 
-function test()
-{
-    console.log("loaded");
-}
-
 function getTasks()
 {
 	return $.ajax({
@@ -30,4 +34,20 @@ function getTasks()
 		cache: false,
 		dataType: 'json',
 	});
+}
+
+function previous()
+{
+	console.log("Previous");
+	page--;
+	$(previousButton).prop('disabled', true)
+	populatePage();
+}
+
+function next()
+{
+	console.log("Next");
+	page++;
+	$(nextButton).prop('disabled', true)
+	populatePage();
 }
