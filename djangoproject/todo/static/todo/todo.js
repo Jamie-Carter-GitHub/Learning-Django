@@ -24,7 +24,9 @@ function populatePage(){
             var strResult="";
             strResult = strResult + 
             "<h3>" + task.taskname + "</h3>" +
-            "<p>" + task.taskdesc + "</p>"
+            "<p>" + task.taskdesc + "</p>" +
+			"<a><button onclick='updateTask(" + task.id + ")'>Update Task</button></a>" +
+			"<a><button onclick='deleteTask(" + task.id + ")'>Delete Task</button></a>"
             $(divs[index]).html(strResult);
 		});
 		
@@ -55,4 +57,14 @@ function next()
 	$(nextButton).prop('disabled', true)
 	defaultPage();
 	populatePage();
+}
+
+function updateTask(id)
+{
+	console.log(id);
+}
+
+function deleteTask(id)
+{
+	console.log(id);
 }
