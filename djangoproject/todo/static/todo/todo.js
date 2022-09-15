@@ -1,7 +1,7 @@
 var page=0; //keep track of page number for managaing which tasks are shown.
+var divs = ['#topLeftTask','#topRightTask','#botLeftTask','#botRightTask'];
 
 function defaultPage(){
-	var divs = ['#topLeftTask','#topRightTask','#botLeftTask','#botRightTask'];
 	for(i = 0; i < divs.length; i++){
 		$(divs[i]).html("<h3>Tasks will show up here once more are added.</h3>");
 	}
@@ -11,7 +11,6 @@ function populatePage(){
 	if(page > 0){
 		$(previousButton).prop('disabled', false)
 	}
-    var divs = ['#topLeftTask','#topRightTask','#botLeftTask','#botRightTask'];
 	//wait for AJAX to finish
 	$.when(getTasks()).done(function (tasks){
 
@@ -43,6 +42,16 @@ function getTasks()
 	});
 }
 
+function getTask(id)
+{
+	return $.ajax({
+		url: '/todo/api/tasks/'+id,
+		type: 'GET',
+		cache: false,
+		dataType: 'json',
+	});
+}
+
 function previous()
 {
 	page--;
@@ -61,7 +70,9 @@ function next()
 
 function updateTask(id)
 {
-	console.log(id);
+	$.when(getTask(id)).done(function (task){
+		console.log(task);
+	});
 }
 
 function deleteTask(id)

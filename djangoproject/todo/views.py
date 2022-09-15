@@ -24,3 +24,14 @@ def task_collection(request):
         tasks = Tasks.objects.all()
         serializer = TaskSerializer(tasks, many=True)
         return Response(serializer.data)
+
+@api_view(['GET'])
+def task_specific(request, id):
+    try:
+        task = Tasks.objects.get(pk=id)
+    except Post.DoesNotExist:
+        return HttpResponse(status=404)
+
+    if request.method == 'GET':
+        serializer = TaskSerializer(task)
+        return Response(serializer.data)
