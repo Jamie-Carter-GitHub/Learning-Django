@@ -24,7 +24,7 @@ function populatePage(){
             strResult = strResult + 
             "<h3>" + task.taskname + "</h3>" +
             "<p>" + task.taskdesc + "</p>" +
-			"<a><button onclick='updateTask(" + task.id + ")'>Update Task</button></a>" +
+			"<a><button onclick='updateTask(" + task.id + ", " + index +")'>Update Task</button></a>" +
 			"<a><button onclick='deleteTask(" + task.id + ")'>Delete Task</button></a>"
             $(divs[index]).html(strResult);
 		});
@@ -56,23 +56,46 @@ function previous()
 {
 	page--;
 	$(previousButton).prop('disabled', true)
-	defaultPage();
-	populatePage();
+	reset();
 }
 
 function next()
 {
 	page++;
 	$(nextButton).prop('disabled', true)
+	reset();
+}
+
+function reset()
+{
 	defaultPage();
 	populatePage();
 }
 
-function updateTask(id)
+function updateTask(id, div)
 {
 	$.when(getTask(id)).done(function (task){
-		console.log(task);
+		var form="";
+		form = form +
+		"<div class='container'>" +
+		"<h1>Update Task</h1>" +
+		"Task Name:<br>" +
+		"<textarea rows='2' id='newname" + div +"'>" + task.taskname +"</textarea>" +
+		"<br><br>" +
+		"Task Description:<br>" +
+		"<textarea rows='8' id='newdesc'" + div +">" + task.taskdesc +"</textarea>" +
+		"<br><br>" +
+		"<a><button onclick='performUpdate(" + div + ")'>Update</button></a>" +
+		"<a><button onclick='reset()'>Cancel</button></a>" +
+		"<br><br>" +
+		"</div>";
+		$(divs[div]).html(form);
 	});
+}
+
+function performUpdate(div)
+{
+	console.log(div);
 }
 
 function deleteTask(id)
