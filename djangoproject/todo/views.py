@@ -6,6 +6,7 @@ from .models import Tasks
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from todo.serializers import TaskSerializer
+import json
 
 def index (request) :
     template = loader.get_template('todoIndex.html')
@@ -35,3 +36,12 @@ def task_specific(request, id):
     if request.method == 'GET':
         serializer = TaskSerializer(task)
         return Response(serializer.data)
+
+@api_view(['PUT'])
+def task_update(request):
+    taskJson = request.data
+    task = Tasks.objects.get(pk=taskJson["id"])
+    task.taskname = taskJson["taskname"]
+    task.taskdesc = taskJson["taskdesc"]
+    task.save()
+    return HttpResponse('Successfully updated')

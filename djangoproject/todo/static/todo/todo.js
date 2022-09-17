@@ -83,9 +83,9 @@ function updateTask(id, div)
 		"<textarea rows='2' id='newname" + div +"'>" + task.taskname +"</textarea>" +
 		"<br><br>" +
 		"Task Description:<br>" +
-		"<textarea rows='8' id='newdesc'" + div +">" + task.taskdesc +"</textarea>" +
+		"<textarea rows='8' id='newdesc" + div +"'>" + task.taskdesc +"</textarea>" +
 		"<br><br>" +
-		"<a><button onclick='performUpdate(" + div + ")'>Update</button></a>" +
+		"<a><button onclick='performUpdate(" + div + ", " + id +")'>Update</button></a>" +
 		"<a><button onclick='reset()'>Cancel</button></a>" +
 		"<br><br>" +
 		"</div>";
@@ -93,9 +93,31 @@ function updateTask(id, div)
 	});
 }
 
-function performUpdate(div)
+function performUpdate(div, taskId)
 {
-	console.log(div);
+	//store the information in a JSON object to send accross.
+	var name = $("#newname" + div).val();
+	var desc = $("#newdesc" + div).val();
+	var task = {
+		id:taskId,
+		taskname:name,
+		taskdesc:desc
+	};
+	
+	$.ajax({
+		url: '/todo/api/tasks/update',
+		type: 'PUT',
+		data: JSON.stringify(task),
+		contentType: "application/json;charset=utf-8",
+		success: function (data) {
+			alert("Update Successful!");
+			reset();
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR + '\n' + textStatus + '\n' + errorThrown);
+        }
+    });
+
 }
 
 function deleteTask(id)
