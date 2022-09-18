@@ -122,5 +122,17 @@ function performUpdate(div, taskId)
 
 function deleteTask(id)
 {
-	console.log(id);
+	$.ajax({
+		url: '/todo/api/tasks/delete/'+id,
+		type: 'DELETE',
+		cache: false,
+		dataType: 'text',
+		success: function () {
+			alert("Task Deleted!");
+			reset();
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR + '\n' + textStatus + '\n' + errorThrown);
+        }
+	});
 }

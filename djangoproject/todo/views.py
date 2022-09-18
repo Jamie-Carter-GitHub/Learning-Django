@@ -45,3 +45,14 @@ def task_update(request):
     task.taskdesc = taskJson["taskdesc"]
     task.save()
     return HttpResponse('Successfully updated')
+
+@api_view(['DELETE'])
+def task_delete(request, id):
+    try:
+        task = Tasks.objects.get(pk=id)
+    except Post.DoesNotExist:
+        return HttpResponse(status=404)
+
+    if request.method == 'DELETE':
+        task.delete()
+        return HttpResponse("Task Deleted.")

@@ -7,4 +7,5 @@ urlpatterns = [
     path('api/tasks', views.task_collection, name="collecttasks"),
     path('api/tasks/<int:id>', views.task_specific, name="specifictask"),
     path('api/tasks/update', views.task_update, name="updatetask"),
+    path('api/tasks/delete/<int:id>', views.task_delete, name="deletetask"),
 ]
